@@ -6,7 +6,68 @@
         xmlns:local="clr-namespace:DungeonKnocker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
 
+        <!-- Player stat block (top-left corner) -->
+        <Border Grid.Row="0" Grid.Column="0" BorderBrush="DarkBlue" BorderThickness="2" CornerRadius="4" Padding="12" Background="#FFE6F0FF" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="Player" FontSize="16" FontWeight="Bold" Foreground="DarkBlue" />
+                <TextBlock Margin="0,8,0,4">
+                    <Run Text="Level: " FontWeight="Bold" />
+                    <Run Text="{Binding Level, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Combat Power: " FontWeight="Bold" />
+                    <Run Text="{Binding TotalCombatPower, Mode=OneWay}" />
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <!-- Left: controls -->
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Dungeon Knocker" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,12" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,12">
+                <Button x:Name="DrawDoorButton" Content="Draw a Door" Width="140" Height="40" Click="DrawDoor_Click" Margin="0,0,8,0" />
+                <Button x:Name="DrawTreasureButton" Content="Draw a Treasure" Width="140" Height="40" Click="DrawTreasure_Click" />
+            </StackPanel>
+            <TextBlock Text="Use the buttons to draw cards. Drawn door will appear on the right." TextAlignment="Center" Foreground="Gray" />
+        </StackPanel>
+
+        <!-- Right: card display -->
+        <Border Grid.Row="1" Grid.Column="1" x:Name="CardBorder" BorderBrush="Black" BorderThickness="2" CornerRadius="6" Padding="12" Background="#FFF8F8F8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Id in top-left corner -->
+                <TextBlock x:Name="CardIdTextBlock" Text="Id: -" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+                <!-- Name -->
+                <TextBlock x:Name="CardNameTextBlock" Grid.Row="1" Text="No card drawn" FontSize="18" FontWeight="Bold" Margin="0,8,0,4" TextWrapping="Wrap" />
+
+                <!-- Description -->
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="CardDescriptionTextBlock" Text="" TextWrapping="Wrap" />
+                </ScrollViewer>
+
+                <!-- Action buttons for Monster cards -->
+                <StackPanel x:Name="ActionButtonsPanel" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0" Visibility="Collapsed">
+                    <Button x:Name="RunButton" Content="Run" Width="80" Height="32" Margin="0,0,8,0" Click="RunFromMonster_Click" />
+                    <Button x:Name="FightButton" Content="Fight" Width="80" Height="32" Click="FightButton_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

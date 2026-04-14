@@ -1,0 +1,41 @@
+[
+  {
+    "Id": 1,
+    "Name": "Weed in a pot",
+    "Description": "Elfs gets additional item for winning.",
+    "ImagePath": "Assets/Doors/WeedInAPot.png",
+    "Type": "Monster",
+    "MonsterLevel": 1,
+    "TreasuresRewarded": 1,
+    "LevelsRewarded": 1,
+    "EscapeType": "Guaranteed",
+    "EscapeBonus": 0,
+    "EscapeDebuff": "None, even escape is granted."
+  },
+  {
+    "Id": 2,
+    "Name": "Lice",
+    "Description": "Impossible to escape.",
+    "ImagePath": "Assets/Doors/Lice.png",
+    "Type": "Monster",
+    "MonsterLevel": 1,
+    "TreasuresRewarded": 1,
+    "LevelsRewarded": 1,
+    "EscapeType": "Impossible",
+    "EscapeBonus": 0,
+    "EscapeDebuff": "Throw away all gear on lower half of yourself."
+  },
+  {
+    "Id": 3,
+    "Name": "Lame Goblin",
+    "Description": "+1 to escape.",
+    "ImagePath": "Assets/Doors/LameGoblin.png",
+    "Type": "Monster",
+    "MonsterLevel": 1,
+    "TreasuresRewarded": 1,
+    "LevelsRewarded": 1,
+    "EscapeType": "Normal",
+    "EscapeBonus": 1,
+    "EscapeDebuff": "He smacks you with his crutch! Lose a level."
+  }
+]
